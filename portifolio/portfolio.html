@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miguel Viana Laube — Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #e2e8f0;
+      --blue: #60a5fa;
+      --blue-mid: #3b82f6;
+      --blue-light: #1e40af;
+      --ink: #cbd5e1;
+      --muted: #94a3b8;
+      --border: #1e293b;
+      --bg: #0a0a0a;
+      --white: #111827;
+      --accent: #0f172a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    
+    header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avatar-wrapper {
+      flex-shrink: 0;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--accent);
+      border: 3px solid var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-placeholder {
+      font-size: 2.4rem;
+      color: var(--blue-mid);
+      user-select: none;
+      line-height: 1;
+    }
+
+    .avatar-label {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.65rem;
+      color: var(--muted);
+      white-space: nowrap;
+      font-style: italic;
+      pointer-events: none;
+    }
+
+    .header-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.1rem;
+      color: #f1f5f9;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .header-text .tagline {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 0.9rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .header-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      border: 1px solid var(--blue-light);
+      border-radius: 99px;
+      padding: 0.25rem 0.85rem;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .header-links a:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+   
+    section { margin-bottom: 3rem; }
+
+    .section-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '—';
+      margin-right: 0.5rem;
+      opacity: 0.5;
+    }
+
+    p {
+      color: #94a3b8;
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+   
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.3rem 0.75rem;
+      letter-spacing: 0.01em;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .skill:hover {
+      border-color: var(--blue-light);
+      background: var(--accent);
+    }
+
+    
+    .projects-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
+      border-color: var(--blue-light);
+    }
+
+    .project-body { flex: 1; }
+
+    .project-body strong {
+      display: block;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-body p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      color: var(--blue);
+      background: var(--accent);
+      border-radius: 3px;
+      padding: 0.15rem 0.5rem;
+    }
+
+    .btn-link {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--blue);
+      background: var(--accent);
+      border: 1px solid var(--blue-light);
+      border-radius: 6px;
+      padding: 0.4rem 0.9rem;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: center;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .btn-link:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    .btn-link.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+   
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 400;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      background: var(--white);
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .contact-item:hover {
+      border-color: var(--blue-light);
+      box-shadow: 0 2px 10px rgba(29, 78, 216, 0.07);
+    }
+
+    .contact-item svg {
+      flex-shrink: 0;
+    }
+
+    .cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+      background: var(--blue);
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 1.2rem;
+      text-decoration: none;
+      margin-top: 1.2rem;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+
+    .cv-btn:hover { background: #1a43c8; }
+
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+  
+    @media (max-width: 520px) {
+      header { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+      .project-card { flex-direction: column; }
+      .btn-link { align-self: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="avatar-wrapper" id="avatar-wrapper">
+      <span class="avatar-placeholder"><img src="foto.jpg" alt="Miguel Laube" /></span>
+      <span class="avatar-label">adicionar foto</span>
+    </div>
+
+    <div class="header-text">
+      <h1>Miguel Viana Laube</h1>
+      <p class="tagline">Estudante de ADS &nbsp;·&nbsp; Taubaté, SP &nbsp;·&nbsp; Python · SQL · AWS · Redes</p>
+      <div class="header-links">
+        <a href="https://www.linkedin.com/in/miguel-laube-67540333a/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/MiguuelLaube" target="_blank">GitHub</a>
+        <a href="CurriculoMiguelLaube.pdf" download>Baixar CV</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <p class="section-label">Sobre</p>
+    <p>
+      Estudante de Análise e Desenvolvimento de Sistemas com foco em construir uma base sólida em
+      tecnologia e desenvolvimento de soluções digitais. Tenho experiência em Python, SQL e FastAPI,
+      com ênfase em APIs REST e integração com bancos de dados. Busco constantemente evoluir por meio de
+      projetos práticos, com o objetivo de aplicar tecnologia de forma eficiente na resolução de
+      problemas reais. Aberto a oportunidades de aprendizado, networking e experiências que contribuam
+      para meu crescimento na área.
+    </p>
+  </section>
+
+  <section>
+    <p class="section-label">Competências</p>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">SQL</span>
+      <span class="skill">FastAPI</span>
+      <span class="skill">SQLAlchemy</span>
+      <span class="skill">Amazon Web Services</span>
+      <span class="skill">Redes de Computadores</span>
+      <span class="skill">HTML &amp; CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">PhpMyAdmin</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Projetos</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-body">
+          <strong>Mini Jogo do Mario</strong>
+          <p>Jogo de plataforma desenvolvido com HTML, CSS e JavaScript durante o curso de ADS no Senai.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+        </div>
+        <a href="https://github.com/MiguuelLaube/Jogomario.git" class="btn-link" target="_blank">Ver projeto</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-body">
+          <strong>API REST com FastAPI</strong>
+          <p>CRUD de estados e cidades usando Python, FastAPI e SQLAlchemy com banco de dados relacional.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">FastAPI</span>
+            <span class="project-tag">SQLAlchemy</span>
+          </div>
+        </div>
+        <a href="#" class="btn-link disabled" target="_blank">Em breve</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-body">
+          <strong>Site de Venda de Tênis</strong>
+          <p>E-commerce desenvolvido com HTML, CSS e JavaScript durante o curso de ADS no Senai.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+        </div>
+        <a href="https://github.com/MiguuelLaube/Site-Tenis-Senai-Outlet.git" class="btn-link" target="_blank">Ver projeto</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Contato</p>
+    <div class="contact-row">
+      <a class="contact-item" href="https://www.linkedin.com/in/miguel-laube-67540333a/" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="contact-item" href="https://github.com/MiguuelLaube" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+    <a href="CurriculoMiguelLaube.pdf" download class="cv-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Baixar Currículo
+    </a>
+  </section>
+
+  <footer>© 2025 Miguel Viana Laube</footer>
+
+</body>
+</html>

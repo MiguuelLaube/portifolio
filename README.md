@@ -16,18 +16,8 @@
 
 ---
 
-## 📋 Índice
-
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Demonstração](#-demonstração)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Como Foi Feito](#-como-foi-feito)
-- [Como Utilizar](#-como-utilizar)
-- [Design e Decisões Técnicas](#-design-e-decisões-técnicas)
-- [Personalização](#-personalização)
-- [Autor](#-autor)
-- [Licença](#-licença)
+## 📋 Portifolio no GithubPages
+ https://miguuellaube.github.io/portifolio/
 
 ---
 
@@ -181,16 +171,6 @@ Os ícones de redes sociais (LinkedIn e GitHub) foram implementados como **SVG i
    Abra o arquivo `portfolio.html` diretamente no navegador (duplo clique ou arraste para o navegador).
 
 > **Não é necessário servidor web, node_modules, npm install ou qualquer configuração.** Basta abrir o HTML.
-
-### Hospedar Online
-
-O portfólio pode ser hospedado gratuitamente em:
-
-| Plataforma | Como |
-|------------|------|
-| **GitHub Pages** | Ative nas configurações do repositório → Pages → Branch `main` |
-| **Netlify** | Arraste a pasta do projeto para [app.netlify.com/drop](https://app.netlify.com/drop) |
-| **Vercel** | Importe o repositório em [vercel.com](https://vercel.com) |
 
 ---
 

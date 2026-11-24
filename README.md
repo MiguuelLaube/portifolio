@@ -37,13 +37,13 @@ O site reúne:
 |---|---|---|
 | **EncoMed** | SaaS de encomendas para drogarias, com WhatsApp automático e IA para NF-e | Vue 3, TypeScript, Pinia, Supabase (RLS), Cloudflare Workers, Evolution API, Gemini |
 | **MRD Andaimes** | Gestão de locação de andaimes e site com calculadora de torre 3D | React, Next.js, TypeScript, Tailwind, Supabase, Recharts, Cloudflare Workers |
+| **Lashes by Ana Clara** | Agendamento online de cílios com login Google, lembretes no WhatsApp e painel da profissional | Next.js, React, TypeScript, Tailwind, Supabase, Evolution API, Vitest |
 | **SIGAF** | Gestão de atividades funcionais · Desafio SAGA SENAI 2026 (equipe de 5) | Node.js, Express, JWT, Vue 3, Pinia, PostgreSQL, testes automatizados |
 | **CorrenteCão** | Adoção animal conectando ONGs, abrigos e tutores | React, TypeScript, Tailwind, Supabase, Gemini, Vercel |
 | **AutoReq** | Gestão e validação de requisitos de software | PHP, JavaScript, HTML, CSS, MySQL (AWS RDS) |
 | **EcoRoute** | Mapa de pontos de coleta e reciclagem de Taubaté | HTML, CSS, JavaScript, Leaflet, PHP, MySQL (AWS RDS) |
-| **Trena** | Guia interativo de responsividade | Vue 3, Vite |
 
-Outros: API de Figurinhas (FastAPI), Jogo do Mario e Outlet Senai (JavaScript).
+Outros: Trena (Vue 3), API de Figurinhas (FastAPI), Jogo do Mario e Outlet Senai (JavaScript).
 
 ## Como foi feito
 

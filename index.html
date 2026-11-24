@@ -4,139 +4,536 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miguel Viana Laube — Portfólio</title>
+  <title>Miguel Laube · Desenvolvedor Web</title>
+  <meta name="description"
+    content="Portfólio de Miguel Viana Laube, estudante de ADS no SENAI Félix Guisard (Taubaté, SP). Sistemas web completos: front-end, back-end, banco de dados e deploy." />
+  <meta name="theme-color" content="#0a0d14" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Miguel Laube · Desenvolvedor Web" />
+  <meta property="og:description"
+    content="Sistemas web completos: front-end, back-end, banco de dados e deploy. Aberto a estágio, emprego e primeira oportunidade em TI." />
+  <meta property="og:image" content="https://miguuellaube.github.io/portifolio/assets/og.png" />
+  <meta property="og:url" content="https://miguuellaube.github.io/portifolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <script>
+    // Aplica o tema antes de pintar a página (evita piscar).
+    (function () {
+      document.documentElement.classList.add('js');
+      var t = null;
+      try { t = localStorage.getItem('tema'); } catch (e) { }
+      if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Serif+Display&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-  <header>
-    <div class="avatar-wrapper" id="avatar-wrapper">
-      <span class="avatar-placeholder"><img src="foto.jpg" alt="Miguel Laube" /></span>
-      <span class="avatar-label">adicionar foto</span>
-    </div>
+  <!-- Ícones (SVG sprite, traço estilo Lucide) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  </svg>
 
-    <div class="header-text">
-      <h1>Miguel Viana Laube</h1>
-      <p class="tagline">Estudante de ADS &nbsp;·&nbsp; Taubaté, SP &nbsp;·&nbsp; Python · SQL · AWS · Redes</p>
-      <div class="header-links">
-        <a href="https://www.linkedin.com/in/miguel-laube-67540333a/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/MiguuelLaube" target="_blank">GitHub</a>
-        <a href="CurriculoMiguelLaube.pdf" download>Baixar CV</a>
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a class="nav__brand" href="#inicio" aria-label="Miguel Laube, início">
+        <span class="nav__mono" aria-hidden="true">ML</span>
+        <span class="nav__name">Miguel Laube</span>
+      </a>
+
+      <nav class="nav__menu" id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#formacao">Formação</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cv-mobile" href="CurriculoMiguelLaube.pdf" download>
+          <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg> Baixar currículo
+        </a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="tema" type="button" aria-label="Mudar para tema claro">
+          <svg class="icon icon--sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon" /></svg>
+        </button>
+        <a class="btn btn--primary btn--sm nav__cv" href="CurriculoMiguelLaube.pdf" download>
+          <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg> CV
+        </a>
+        <button class="icon-btn nav__toggle" id="menu-btn" type="button" aria-controls="menu" aria-expanded="false"
+          aria-label="Abrir menu">
+          <svg class="icon icon--open" aria-hidden="true"><use href="#i-menu" /></svg>
+          <svg class="icon icon--close" aria-hidden="true"><use href="#i-x" /></svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <section>
-    <p class="section-label">Sobre</p>
-    <p>
-      Estudante de Análise e Desenvolvimento de Sistemas com foco em construir uma base sólida em
-      tecnologia e desenvolvimento de soluções digitais. Tenho experiência em Python, SQL e FastAPI,
-      com ênfase em APIs REST e integração com bancos de dados. Busco constantemente evoluir por meio de
-      projetos práticos, com o objetivo de aplicar tecnologia de forma eficiente na resolução de
-      problemas reais. Aberto a oportunidades de aprendizado, networking e experiências que contribuam
-      para meu crescimento na área.
-    </p>
-  </section>
-
-  <section>
-    <p class="section-label">Competências</p>
-    <div class="skills">
-      <span class="skill">Python</span>
-      <span class="skill">SQL</span>
-      <span class="skill">FastAPI</span>
-      <span class="skill">SQLAlchemy</span>
-      <span class="skill">Amazon Web Services</span>
-      <span class="skill">Redes de Computadores</span>
-      <span class="skill">HTML &amp; CSS</span>
-      <span class="skill">JavaScript</span>
-      <span class="skill">PhpMyAdmin</span>
-    </div>
-  </section>
-
-  <section>
-    <p class="section-label">Projetos</p>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-body">
-          <strong>Mini Jogo do Mario</strong>
-          <p>Jogo de plataforma desenvolvido com HTML, CSS e JavaScript durante o curso de ADS no Senai.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JavaScript</span>
-          </div>
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero container" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <div class="hero__id intro" style="--d:0">
+          <img class="hero__photo" src="foto.jpg" width="200" height="200" alt="Foto de Miguel Laube" />
+          <p class="status"><span class="status__dot" aria-hidden="true"></span>Aberto a emprego e primeira oportunidade<span class="status__where"> · Taubaté, SP</span></p>
         </div>
-        <a href="https://github.com/MiguuelLaube/Jogomario.git" class="btn-link" target="_blank">Ver projeto</a>
-      </div>
-      <div class="project-card">
-        <div class="project-body">
-          <strong>Site de Venda de Tênis</strong>
-          <p>E-commerce desenvolvido com HTML, CSS e JavaScript durante o curso de ADS no Senai.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JavaScript</span>
-          </div>
+
+        <h1 class="hero__title intro" id="hero-title" style="--d:1">Miguel Laube</h1>
+        <p class="hero__lead intro" style="--d:2">
+          Estudante de Análise e Desenvolvimento de Sistemas. Crio <strong>sistemas web completos</strong>:
+          front-end, back-end, banco de dados e deploy, com apoio de IA como Claude Code e Antigravity.
+        </p>
+
+        <div class="hero__cta intro" style="--d:3">
+          <a class="btn btn--primary" href="#projetos">Ver projetos
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          <a class="btn btn--secondary" href="CurriculoMiguelLaube.pdf" download>
+            <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg> Baixar currículo</a>
         </div>
-        <a href="https://github.com/MiguuelLaube/Site-Tenis-Senai-Outlet.git" class="btn-link" target="_blank">Ver
-          projeto</a>
+
+        <ul class="hero__social intro" style="--d:4" aria-label="Redes">
+          <li><a class="icon-btn" href="https://github.com/MiguuelLaube" target="_blank" rel="noopener"
+              aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github" /></svg></a></li>
+          <li><a class="icon-btn" href="https://www.linkedin.com/in/miguel-laube-67540333a/" target="_blank"
+              rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg></a></li>
+          <li><a class="icon-btn" href="mailto:miguuel.laube@gmail.com" aria-label="E-mail"><svg class="icon"
+                aria-hidden="true"><use href="#i-mail" /></svg></a></li>
+        </ul>
       </div>
 
-      <div class="project-card">
-        <div class="project-body">
-          <strong>API de Gerenciamento de Figurinhas</strong>
-          <p>API REST para gerenciamento de figurinhas, permitindo cadastro, consulta e organização de coleções.</p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">FastAPI</span>
-            <span class="project-tag">API REST</span>
-          </div>
+      <figure class="code-card intro" style="--d:2" aria-label="Resumo em formato de código">
+        <div class="code-card__bar" aria-hidden="true">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="code-card__tab">miguel.ts</span>
         </div>
-        <a href="https://github.com/MiguuelLaube/API-de-figurinhas.git" class="btn-link" target="_blank">Ver projeto</a>
+        <pre class="code-card__body" id="codigo"><code><span class="ln"><span class="k">const</span> <span class="v">miguel</span> = {</span>
+<span class="ln">  <span class="p">curso</span>: <span class="s">"ADS · SENAI"</span>,</span>
+<span class="ln">  <span class="p">foco</span>: <span class="s">"web full-stack"</span>,</span>
+<span class="ln">  <span class="p">stack</span>: [<span class="s">"Vue 3"</span>, <span class="s">"React"</span>, <span class="s">"Node.js"</span>],</span>
+<span class="ln">  <span class="p">dados</span>: <span class="s">"PostgreSQL (Supabase)"</span>,</span>
+<span class="ln">  <span class="p">deploy</span>: [<span class="s">"Cloudflare"</span>, <span class="s">"Vercel"</span>],</span>
+<span class="ln">  <span class="p">ia</span>: [<span class="s">"Claude Code"</span>, <span class="s">"Antigravity"</span>],</span>
+<span class="ln">  <span class="p">status</span>: <span class="s ok">"aberto a emprego"</span>,</span>
+<span class="ln">};<span class="caret" aria-hidden="true"></span></span></code></pre>
+      </figure>
+    </section>
+
+    <!-- FAIXA DE STACK -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Vue 3</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>FastAPI</span><span>PostgreSQL</span><span>Supabase</span><span>Tailwind CSS</span><span>Cloudflare Workers</span><span>Vercel</span><span>AWS</span><span>PHP</span><span>MySQL</span><span>Python</span><span>Git</span>
+        <span>Vue 3</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>FastAPI</span><span>PostgreSQL</span><span>Supabase</span><span>Tailwind CSS</span><span>Cloudflare Workers</span><span>Vercel</span><span>AWS</span><span>PHP</span><span>MySQL</span><span>Python</span><span>Git</span>
+      </div>
+    </div>
+
+    <!-- SOBRE -->
+    <section class="section container" id="sobre" aria-labelledby="sobre-title">
+      <div class="section__head reveal">
+        <p class="eyebrow">01 · Sobre</p>
+        <h2 id="sobre-title">Do problema ao sistema no ar</h2>
+      </div>
+      <div class="about">
+        <div class="about__text reveal">
+          <p>
+            Sou estudante de ADS no <strong>SENAI Félix Guisard</strong>, em Taubaté, com foco em
+            desenvolvimento web. Gosto de pegar um problema real, como uma farmácia que anota encomendas no
+            caderno ou uma locadora de andaimes que faz orçamento à mão, e transformar em um sistema
+            completo, do banco de dados ao deploy.
+          </p>
+          <p>
+            Uso IA no dia a dia de desenvolvimento, com ferramentas como Claude Code, Antigravity e
+            Google Stitch, para ir mais rápido sem deixar de entender o que está sendo construído.
+            Estou aberto a <strong>emprego, estágio ou primeira oportunidade em TI</strong> para aplicar meu raciocínio lógico em problemas de verdade
+            e aprender com um time.
+          </p>
+        </div>
+        <ul class="quals reveal" aria-label="Qualificações">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Aprendizado contínuo e proatividade</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Comunicação clara e objetiva</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Resolução de problemas com lógica</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Trabalho em equipe e colaboração</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Adaptabilidade a mudanças</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="section container" id="projetos" aria-labelledby="projetos-title">
+      <div class="section__head reveal">
+        <p class="eyebrow">02 · Projetos</p>
+        <h2 id="projetos-title">O que eu já construí</h2>
+        <p class="section__sub">Sistemas com front-end, back-end, banco de dados e deploy. Os prints são das telas reais de cada projeto.</p>
       </div>
 
+      <!-- Destaque: EncoMed -->
+      <article class="project project--featured reveal">
+        <a class="shot" href="https://encomed.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">encomed.com</span></span>
+          <span class="shot__img">
+            <img src="assets/projetos/encomed.webp"
+              srcset="assets/projetos/encomed-640.webp 640w, assets/projetos/encomed.webp 1280w"
+              sizes="(min-width: 960px) 620px, 100vw" width="1280" height="800" loading="lazy"
+              alt="Página inicial do EncoMed: 'As encomendas da farmácia, do balcão ao WhatsApp', com o painel do sistema abaixo" />
+          </span>
+        </a>
+        <div class="project__body">
+          <p class="project__kind">SaaS · no ar</p>
+          <h3>EncoMed</h3>
+          <p class="project__desc">SaaS de encomendas para drogarias: o balconista registra o pedido, a compra é
+            feita no distribuidor e o cliente é avisado pelo WhatsApp quando o produto chega.</p>
+          <ul class="project__points">
+            <li>Várias farmácias no mesmo sistema, isoladas por <strong>Row Level Security</strong> no PostgreSQL</li>
+            <li>Avisos automáticos no WhatsApp pela Evolution API</li>
+            <li>IA (Gemini) que lê a NF-e para agilizar a entrada das compras</li>
+          </ul>
+          <ul class="tags" aria-label="Tecnologias">
+            <li>Vue 3</li><li>TypeScript</li><li>Pinia</li><li>Supabase</li><li>Cloudflare Workers</li><li>Evolution API</li><li>Gemini</li>
+          </ul>
+          <div class="project__links">
+            <a class="btn btn--primary btn--sm" href="https://encomed.com" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg> Ver site</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="projects-grid">
+        <!-- MRD Andaimes -->
+        <article class="project reveal">
+          <a class="shot" href="https://github.com/MiguuelLaube/mrd-adnaimes-site" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">mrd andaimes</span></span>
+            <span class="shot__img">
+              <img src="assets/projetos/mrd-andaimes.webp"
+                srcset="assets/projetos/mrd-andaimes-640.webp 640w, assets/projetos/mrd-andaimes.webp 1280w"
+                sizes="(min-width: 960px) 540px, 100vw" width="1280" height="800" loading="lazy"
+                alt="Site da MRD Andaimes: 'Aluguel de andaimes em Taubaté e região' com a torre de andaime em 3D" />
+            </span>
+          </a>
+          <div class="project__body">
+            <p class="project__kind">Sistema + site · empresa real</p>
+            <h3>MRD Andaimes</h3>
+            <p class="project__desc">Gestão de locação de andaimes e site da empresa com a calculadora “Monte sua
+              torre”: a torre em 3D se monta conforme as peças e o pedido vai direto para o WhatsApp.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>React</li><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>Supabase</li><li>Recharts</li><li>Cloudflare Workers</li>
+            </ul>
+            <div class="project__links">
+              <a class="btn btn--quiet btn--sm" href="https://github.com/MiguuelLaube/mrd-adnaimes-site" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg> Código do site</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SIGAF -->
+        <article class="project reveal">
+          <a class="shot" href="https://sigaf-coral.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">sigaf-coral.vercel.app</span></span>
+            <span class="shot__img">
+              <img src="assets/projetos/sigaf.webp"
+                srcset="assets/projetos/sigaf-640.webp 640w, assets/projetos/sigaf.webp 1280w"
+                sizes="(min-width: 960px) 540px, 100vw" width="1280" height="800" loading="lazy"
+                alt="Dashboard do gestor no SIGAF com horas registradas, substituições e gráfico de homologação" />
+            </span>
+          </a>
+          <div class="project__body">
+            <p class="project__kind"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg> Equipe de 5 · Desafio SAGA SENAI 2026</p>
+            <h3>SIGAF</h3>
+            <p class="project__desc">Registro e gestão de atividades funcionais e substituições, com homologação pelo
+              gestor, relatórios em PDF e Excel e 64 testes automatizados na API.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>Node.js</li><li>Express</li><li>JWT</li><li>Vue 3</li><li>Pinia</li><li>PostgreSQL</li><li>Testes</li>
+            </ul>
+            <div class="project__links">
+              <a class="btn btn--secondary btn--sm" href="https://sigaf-coral.vercel.app" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg> Ver site</a>
+              <a class="btn btn--quiet btn--sm" href="https://github.com/JonathanWillian-hub/SIGAF" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg> Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CorrenteCão -->
+        <article class="project reveal">
+          <a class="shot" href="https://github.com/MiguuelLaube/CorreC-o" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">correntecão</span></span>
+            <span class="shot__img">
+              <img src="assets/projetos/correntecao.webp"
+                srcset="assets/projetos/correntecao-640.webp 640w, assets/projetos/correntecao.webp 1280w"
+                sizes="(min-width: 960px) 540px, 100vw" width="1280" height="800" loading="lazy"
+                alt="Tela de adoção do CorrenteCão: 'Encontre seu novo melhor amigo', com filtros e cards de cães e gatos" />
+            </span>
+          </a>
+          <div class="project__body">
+            <p class="project__kind">Plataforma social</p>
+            <h3>CorrenteCão</h3>
+            <p class="project__desc">Plataforma de adoção animal que conecta ONGs, abrigos independentes e tutores,
+              com lar temporário, doações e IA para ajudar na triagem.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Supabase</li><li>Gemini</li><li>Vercel</li>
+            </ul>
+            <div class="project__links">
+              <a class="btn btn--quiet btn--sm" href="https://github.com/MiguuelLaube/CorreC-o" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg> Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- AutoReq -->
+        <article class="project reveal">
+          <a class="shot" href="https://github.com/gabrielmorais27/AutoReq" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">autoreq</span></span>
+            <span class="shot__img">
+              <img src="assets/projetos/autoreq.webp"
+                srcset="assets/projetos/autoreq-640.webp 640w, assets/projetos/autoreq.webp 1280w"
+                sizes="(min-width: 960px) 540px, 100vw" width="1280" height="800" loading="lazy"
+                alt="Dashboard do AutoReq com o resumo de projetos, requisitos, pendentes e aprovados" />
+            </span>
+          </a>
+          <div class="project__body">
+            <p class="project__kind">Engenharia de requisitos</p>
+            <h3>AutoReq</h3>
+            <p class="project__desc">Plataforma para levantar, organizar e validar requisitos de software entre
+              clientes, analistas e desenvolvedores, com documentação gerada automaticamente.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>PHP</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>MySQL (AWS RDS)</li>
+            </ul>
+            <div class="project__links">
+              <a class="btn btn--quiet btn--sm" href="https://github.com/gabrielmorais27/AutoReq" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg> Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- EcoRoute -->
+        <article class="project reveal">
+          <a class="shot" href="https://github.com/luizcarlosdvj-ops/EcoRoute" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">ecoroute</span></span>
+            <span class="shot__img">
+              <img src="assets/projetos/ecoroute.webp"
+                srcset="assets/projetos/ecoroute-640.webp 640w, assets/projetos/ecoroute.webp 1280w"
+                sizes="(min-width: 960px) 540px, 100vw" width="1280" height="800" loading="lazy"
+                alt="Página inicial do EcoRoute: 'Descarte em Taubaté no lugar certo', com mapa ilustrado de rotas e pontos de coleta" />
+            </span>
+          </a>
+          <div class="project__body">
+            <p class="project__kind">Mapa interativo · Taubaté</p>
+            <h3>EcoRoute</h3>
+            <p class="project__desc">Mapa dos pontos de coleta e reciclagem de Taubaté, com guia de tipos de lixo e
+              cadastro de empresas parceiras.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Leaflet</li><li>PHP</li><li>MySQL (AWS RDS)</li>
+            </ul>
+            <div class="project__links">
+              <a class="btn btn--quiet btn--sm" href="https://github.com/luizcarlosdvj-ops/EcoRoute" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg> Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Trena -->
+        <article class="project reveal">
+          <a class="shot" href="https://miguuellaube.github.io/trena/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <span class="shot__bar"><span class="dots"><i></i><i></i><i></i></span><span class="shot__url">miguuellaube.github.io/trena</span></span>
+            <span class="shot__img">
+              <img src="assets/projetos/trena.webp"
+                srcset="assets/projetos/trena-640.webp 640w, assets/projetos/trena.webp 1280w"
+                sizes="(min-width: 960px) 540px, 100vw" width="1280" height="800" loading="lazy"
+                alt="Página inicial do Trena: 'Meça antes de cortar', guia de responsividade com menu de seções" />
+            </span>
+          </a>
+          <div class="project__body">
+            <p class="project__kind"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg> Dupla · projeto de revisão do curso</p>
+            <h3>Trena</h3>
+            <p class="project__desc">Guia interativo de responsividade: cada seção tem laboratório ao vivo (unidades CSS,
+              Flexbox e Grid, imagens) e uma trena no canto que mostra a largura da tela e o breakpoint ativo.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>Vue 3</li><li>Vite</li><li>Vue Router</li><li>Pinia</li><li>GitHub Pages</li>
+            </ul>
+            <div class="project__links">
+              <a class="btn btn--secondary btn--sm" href="https://miguuellaube.github.io/trena/" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg> Ver site</a>
+              <a class="btn btn--quiet btn--sm" href="https://github.com/MiguuelLaube/trena" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg> Código</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Outros -->
+      <div class="others reveal">
+        <h3 class="others__title">Outros projetos</h3>
+        <ul class="others__list">
+          <li>
+            <a href="https://github.com/MiguuelLaube/API-de-figurinhas" target="_blank" rel="noopener">
+              <span class="others__name">API de Figurinhas <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg></span>
+              <span class="others__desc">API REST para cadastrar, consultar e organizar coleções.</span>
+              <span class="others__tech">Python · FastAPI</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/MiguuelLaube/Jogomario" target="_blank" rel="noopener">
+              <span class="others__name">Jogo do Mario <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg></span>
+              <span class="others__desc">Mini jogo de plataforma feito no curso de ADS.</span>
+              <span class="others__tech">HTML · CSS · JavaScript</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/MiguuelLaube/Site-Tenis-Senai-Outlet" target="_blank" rel="noopener">
+              <span class="others__name">Outlet Senai <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg></span>
+              <span class="others__desc">E-commerce de tênis feito no curso de ADS.</span>
+              <span class="others__tech">HTML · CSS · JavaScript</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section container" id="skills" aria-labelledby="skills-title">
+      <div class="section__head reveal">
+        <p class="eyebrow">03 · Skills</p>
+        <h2 id="skills-title">Ferramentas que uso</h2>
+      </div>
+      <div class="skills">
+        <div class="skill-group reveal">
+          <h3>Linguagens</h3>
+          <ul class="chips"><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>SQL</li><li>PHP</li></ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Front-end</h3>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>Vue 3</li><li>React</li><li>Next.js</li><li>Tailwind CSS</li></ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Back-end</h3>
+          <ul class="chips"><li>Node.js (Express)</li><li>FastAPI</li><li>APIs REST</li><li>Autenticação JWT</li></ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Banco de dados</h3>
+          <ul class="chips"><li>PostgreSQL (Supabase)</li><li>MySQL (PhpMyAdmin)</li></ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Deploy e cloud</h3>
+          <ul class="chips"><li>Cloudflare Workers</li><li>Vercel</li><li>GitHub Pages</li><li>AWS</li></ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>IA no desenvolvimento</h3>
+          <ul class="chips"><li>Claude Code</li><li>Antigravity</li><li>Google Stitch</li><li>Base44</li><li>API do Gemini</li></ul>
+        </div>
+        <div class="skill-group skill-group--wide reveal">
+          <h3>Infraestrutura e ferramentas</h3>
+          <ul class="chips"><li>Redes</li><li>Linux</li><li>Git e GitHub</li><li>Cisco Packet Tracer</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section class="section container" id="formacao" aria-labelledby="formacao-title">
+      <div class="section__head reveal">
+        <p class="eyebrow">04 · Formação</p>
+        <h2 id="formacao-title">Onde estou aprendendo</h2>
+      </div>
+      <div class="edu">
+        <ol class="timeline reveal" aria-label="Formação acadêmica">
+          <li class="timeline__item timeline__item--now">
+            <span class="timeline__when">Cursando</span>
+            <h3>Análise e Desenvolvimento de Sistemas</h3>
+            <p>SENAI Félix Guisard · Taubaté, SP</p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2024</span>
+            <h3>Ensino Médio</h3>
+            <p>Concluído</p>
+          </li>
+        </ol>
+
+        <div class="edu__side">
+          <div class="card reveal">
+            <h3 class="card__title"><svg class="icon" aria-hidden="true"><use href="#i-award" /></svg> Cursos complementares</h3>
+            <ul class="courses">
+              <li><span>Introdução ao Cisco Packet Tracer</span><span class="badge badge--done">Concluído</span></li>
+              <li><span>Linux Unhatched</span><span class="badge">Cursando</span></li>
+              <li><span>Conceitos Básicos de Redes</span><span class="badge">Cursando</span></li>
+              <li><span>Introdução à Cibersegurança</span><span class="badge">Cursando</span></li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <h3 class="card__title"><svg class="icon" aria-hidden="true"><use href="#i-globe" /></svg> Idiomas</h3>
+            <ul class="courses">
+              <li><span>Inglês</span><span class="badge">Básico/Intermediário</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section container" id="contato" aria-labelledby="contato-title">
+      <div class="contact reveal">
+        <p class="eyebrow">05 · Contato</p>
+        <h2 id="contato-title">Vamos conversar?</h2>
+        <p class="contact__lead">Estou aberto a emprego e à minha primeira oportunidade em TI, seja vaga efetiva ou estágio. Se tiver uma vaga ou quiser trocar uma ideia sobre
+          algum projeto, me chame.</p>
+
+        <div class="contact__email">
+          <a class="contact__address" href="mailto:miguuel.laube@gmail.com">miguuel.laube@gmail.com</a>
+          <button class="btn btn--secondary btn--sm" type="button" id="copiar" data-email="miguuel.laube@gmail.com">
+            <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg><span>Copiar e-mail</span>
+          </button>
+        </div>
+
+        <ul class="contact__links">
+          <li><a class="btn btn--secondary" href="https://www.linkedin.com/in/miguel-laube-67540333a/" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg> LinkedIn</a></li>
+          <li><a class="btn btn--secondary" href="https://github.com/MiguuelLaube" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg> GitHub</a></li>
+          <li><a class="btn btn--secondary" href="https://wa.me/5512997443863" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg> (12) 99744-3863</a></li>
+          <li><a class="btn btn--primary" href="CurriculoMiguelLaube.pdf" download>
+              <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg> Baixar currículo</a></li>
+        </ul>
+        <p class="contact__where"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg> Taubaté, SP</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="ano">2026</span> Miguel Viana Laube</p>
+      <p>Feito com HTML, CSS e JavaScript · <a href="https://github.com/MiguuelLaube/portifolio" target="_blank" rel="noopener">código do site</a></p>
     </div>
-  </section>
+  </footer>
 
-  <section>
-    <p class="section-label">Contato</p>
-    <div class="contact-row">
-      <a class="contact-item" href="https://www.linkedin.com/in/miguel-laube-67540333a/" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect x="2" y="9" width="4" height="12" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-        LinkedIn
-      </a>
-      <a class="contact-item" href="https://github.com/MiguuelLaube" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-        </svg>
-        GitHub
-      </a>
-    </div>
-    <a href="CurriculoMiguelLaube.pdf" download class="cv-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
-      Baixar Currículo
-    </a>
-  </section>
-
-  <footer>© 2025 Miguel Viana Laube</footer>
-
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 
 </html>

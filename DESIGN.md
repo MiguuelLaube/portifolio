@@ -27,7 +27,7 @@ As páginas usam os nomes, nunca valores soltos.
 | `--primary-solid` | `#3b82f6` | `#2563eb` | botão principal (texto branco) |
 | `--primary-hover` | `#2563eb` | `#1d4ed8` | hover do botão principal |
 | `--primary-soft` | `rgba(96,165,250,.12)` | `rgba(37,99,235,.08)` | fundo de tags e realces |
-| `--success` | `#34d399` | `#059669` | status "disponível para estágio" |
+| `--success` | `#34d399` | `#059669` | status "aberto a emprego" |
 
 Um só azul de ação. Verde só para o status. Sem gradientes roxo-azul, sem texto em gradiente.
 

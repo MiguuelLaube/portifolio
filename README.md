@@ -20,7 +20,7 @@
 ## Sobre
 
 Portfólio de **Miguel Viana Laube**, estudante de **Análise e Desenvolvimento de Sistemas** no
-SENAI Félix Guisard (Taubaté, SP), com foco em desenvolvimento web full-stack e buscando estágio em TI.
+SENAI Félix Guisard (Taubaté, SP), com foco em desenvolvimento web full-stack e aberto a emprego e primeira oportunidade em TI.
 
 O site reúne:
 
